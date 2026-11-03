@@ -47,11 +47,11 @@ Cubre el **qué** y el **por qué**: problema, JTBDs con evidencia, stories con 
 ### Como plugin de Claude Code (recomendado)
 
 ```bash
-claude plugin marketplace add joseperezaguera/gemba-product-management-toolkit
+claude plugin marketplace add gemba-app/gemba-product-management-toolkit
 claude plugin install gemba-product-management-toolkit@gemba
 ```
 
-O desde una sesión de Claude Code: `/plugin marketplace add joseperezaguera/gemba-product-management-toolkit` y `/plugin install gemba-product-management-toolkit@gemba`.
+O desde una sesión de Claude Code: `/plugin marketplace add gemba-app/gemba-product-management-toolkit` y `/plugin install gemba-product-management-toolkit@gemba`.
 
 ---
 

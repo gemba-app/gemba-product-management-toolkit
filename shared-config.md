@@ -208,4 +208,4 @@ Cada equipo configura su integración con la herramienta de documentos por fuera
 
 ---
 
-*Plugin v3.0.0 — MIT License — https://github.com/joseperezaguera/gemba-product-management-toolkit*
+*Plugin v3.0.1 — MIT License — https://github.com/gemba-app/gemba-product-management-toolkit*
