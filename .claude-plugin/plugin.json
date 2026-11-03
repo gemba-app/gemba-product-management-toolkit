@@ -1,7 +1,7 @@
 {
   "name": "gemba-product-management-toolkit",
-  "version": "3.0.1",
-  "description": "Pipeline PRD → JTBDs → User Stories validadas y priorizadas → spec-input.md para cualquier herramienta de Spec-Driven Development. 8 skills + 11 comandos. Source-agnostic (acepta PRD pegado, fichero o URL) y sin acoplamiento a Notion/Jira ni a ninguna herramienta de SDD.",
+  "version": "3.1.0",
+  "description": "Pipeline PRD → JTBDs → User Stories validadas y priorizadas → spec-input.md para cualquier herramienta de Spec-Driven Development. 8 skills + 12 comandos. Source-agnostic (acepta PRD pegado, fichero o URL) y sin acoplamiento a Notion/Jira ni a ninguna herramienta de SDD.",
   "author": {
     "name": "José Ramón Pérez Agüera",
     "url": "https://www.gemba.es"

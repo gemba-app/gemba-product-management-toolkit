@@ -8,12 +8,15 @@ skill: story-splitting
 > - **§Filosofía del Plugin** — modo copiloto, NO inventar, preguntar antes de generar
 > - **§Estilo de Escritura** — frases ≤30 palabras, sin adjetivos sin datos, NUNCA inventar métricas
 > - **§Antipatrones Compartidos** — los 7 antipatrones a detectar
+> - **§Marcadores de Estado** — empezar cada mensaje con 🚦 / 📋 / 🔍 / 🧱 según el estado
 >
 > Si no puedes leer el fichero, detén la ejecución y reporta el problema.
 
 Analiza stories para detectar red flags lingüísticos y propone splits incrementales.
 
 **Input necesario:** User stories a analizar (de `/stories`, `/validate-stories` o de tu issue tracker).
+
+> **Recordatorio de fase (obligatorio):** estás **dividiendo** stories existentes, no generando stories nuevas. Cada split sale del contenido de la story original: no añadas alcance, criterios, usuarios ni métricas que no estén en ella. Si un split necesita información que la story no tiene, márcala `⚠️ Pendiente`. Repite este recordatorio en tu primer mensaje al usuario. Patrón Lada Kesseler — `reminders`.
 
 **Proceso:**
 1. Leer el SKILL.md de `skills/story-splitting/`

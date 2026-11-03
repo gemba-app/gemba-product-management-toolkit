@@ -44,6 +44,7 @@ Flujo: prd-quality-guard → **Preparación** → B1 Propósito → B2 Plan → 
 ### Proceso
 
 1. Obtener el PRD (fichero local, URL o pegado por el usuario)
+1b. **🚦 Eco del entendimiento:** devolver al usuario qué has entendido del PRD (qué es, problema central, usuario, resultado buscado, dudas) y **esperar confirmación** antes de analizar gaps. Formato: `shared-config.md` §Eco del Entendimiento. En `/analyze-research`, hacer el mismo eco sobre las notas de entrevistas.
 2. Leer `references/gap-detection-prd.md`
 3. Analizar EAC con GAP-PRD-01 a PRD-04 + EFC/Scope con GAP-PRD-05 a PRD-08
 4. Calcular Gap Score: `(Críticos × 10) + (Mayores × 5) + (Menores × 2) + (Refinamiento × 1)`. **Cálculo determinista:** `python3 scripts/gap_score.py --criticos=<N> --mayores=<N> --menores=<N> --refinamiento=<N>`
@@ -218,6 +219,8 @@ Output: Decisión + evaluación criterios + JTBDs listos o research adicional ne
 ## Checkpoints Conversacionales
 
 > La skill no ejecuta todo de golpe. Pausa en momentos clave para compartir avances y permitir redirigir.
+
+**ECO Pre-Preparación:** Devolver el entendimiento del PRD (o de las notas, en análisis) y esperar confirmación. Ver `shared-config.md` §Eco del Entendimiento.
 
 **CHECKPOINT Post-Preparación + B1:** Comunicar Gap Score, gaps principales, modo research, propósito. Preguntar: "¿Estamos alineados? ¿Procedo al plan?"
 

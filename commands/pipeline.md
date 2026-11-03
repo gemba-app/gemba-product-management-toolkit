@@ -7,6 +7,7 @@ description: "Ejecutar pipeline completo: PRD → Research → Stories → Valid
 > - **§Filosofía del Plugin** — modo copiloto, NO inventar, preguntar antes de generar
 > - **§Estilo de Escritura** — frases ≤30 palabras, sin adjetivos sin datos, NUNCA inventar métricas
 > - **§Antipatrones Compartidos** — los 7 antipatrones a detectar
+> - **§Marcadores de Estado** — empezar cada mensaje con 🚦 / 📋 / 🔍 / 🧱 según el estado
 >
 > Si no puedes leer el fichero, detén la ejecución y reporta el problema.
 
@@ -53,6 +54,8 @@ Para cada paso del pipeline, usa la herramienta `Agent` con:
 4. **PARA `validate-stories`**, dispatcho **OBLIGATORIO** a sub-agente fresco. Es feedback-flip: el revisor no debe haber visto cómo se generó la story.
 5. **ANTE FAIL** en quality gate o research, detener pipeline y reportar.
 6. **ENTRE `research` y `analyze-research`**, hay pausa natural (entrevistas reales). Comunicar al usuario y NO continuar hasta que aporte notas.
+7. **PARA `validate-stories` y `split-stories`**, copiar en el prompt del sub-agente el **Recordatorio de fase** de su command (`commands/validate-stories.md`, `commands/split-stories.md`). Patrón `reminders`.
+8. **SI el sub-agente devuelve "Entendimiento a confirmar"** (eco de `shared-config.md` §Eco del Entendimiento), mostrarlo al usuario con 🚦 y esperar su confirmación. Si corrige, re-dispatchar el paso con la corrección.
 
 ---
 
@@ -89,6 +92,9 @@ CONTEXTO:
 - Si la SKILL define CHECKPOINTs interactivos, en lugar de preguntar al usuario,
   documenta las preguntas que harías y devuélvelas en el output como "Preguntas
   pendientes para el orquestador".
+- Si la SKILL pide eco del entendimiento (shared-config.md §Eco del Entendimiento),
+  ponlo al principio del output como "Entendimiento a confirmar por el orquestador".
+{solo validate-stories / split-stories: Recordatorio de fase del command, literal}
 
 PARA CÁLCULOS NUMÉRICOS: usa los scripts deterministas en `scripts/` (ver
 `scripts/README.md`). NO calcules medias, scores ni regex en tu razonamiento.

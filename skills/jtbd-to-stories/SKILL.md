@@ -100,9 +100,9 @@ Si el usuario intenta generar stories SIN haber pasado por research:
 
 ### CHECKPOINT 1: Inventario de información disponible
 
-Antes de generar nada, comunicar al usuario:
+Antes de generar nada, comunicar al usuario. Empezar por el eco del entendimiento (`shared-config.md` §Eco del Entendimiento): qué JTBDs hay, qué problema central resuelven y para qué usuario, según el input. Después, el inventario:
 
-> He revisado los JTBDs y el PRD. Este es el inventario de lo que tengo:
+> 🚦 He revisado los JTBDs y el PRD. Este es el inventario de lo que tengo:
 > - JTBDs: [listar con completitud de cada campo]
 > - Evidencia: [cuanti: X datos | cuali: X quotes]
 > - Métricas/KPIs: [disponibles o ⚠️ ausentes]
