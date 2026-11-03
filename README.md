@@ -73,6 +73,8 @@ O desde una sesión de Claude Code: `/plugin marketplace add gemba-app/gemba-pro
 
 O todo seguido, con checkpoints entre pasos: `/pipeline`.
 
+Si una skill se equivoca y la corriges ("esa story no es fake porque…"), guarda la corrección con `/save-correction`. Se escribe en `.gemba/teams/<equipo>.md` dentro de tu proyecto y las skills la cargan en las siguientes sesiones.
+
 ### No tienes nada
 
 ```

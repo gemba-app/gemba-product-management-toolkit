@@ -7,6 +7,7 @@ description: "Evaluar calidad de un PRD como quality gate"
 > - **§Filosofía del Plugin** — modo copiloto, NO inventar, preguntar antes de generar
 > - **§Estilo de Escritura** — frases ≤30 palabras, sin adjetivos sin datos, NUNCA inventar métricas
 > - **§Antipatrones Compartidos** — los 7 antipatrones a detectar
+> - **§Marcadores de Estado** — empezar cada mensaje con 🚦 / 📋 / 🔍 / 🧱 según el estado
 >
 > Si no puedes leer el fichero, detén la ejecución y reporta el problema.
 

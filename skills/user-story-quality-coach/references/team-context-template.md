@@ -1,6 +1,6 @@
 # Template de Contexto por Equipo
 
-Usar este template para crear `references/teams/{team-key}.md`. El contexto de equipo es **opcional pero recomendado**: ayuda a la skill a detectar Fake Stories (con usuarios inválidos para tu dominio) y a sugerir métricas relevantes.
+Usar este template para crear `.gemba/teams/{team-key}.md` en el directorio de trabajo de tu proyecto (recomendado: no se pierde al actualizar el plugin) o `references/teams/{team-key}.md` dentro de la skill. El contexto de equipo es **opcional pero recomendado**: ayuda a la skill a detectar Fake Stories (con usuarios inválidos para tu dominio) y a sugerir métricas relevantes.
 
 ---
 
@@ -80,6 +80,10 @@ Usar este template para crear `references/teams/{team-key}.md`. El contexto de e
 
 - **Documentación:** [URL espacio del equipo]
 - **Comunicación:** [Canales relevantes]
+
+## Correcciones registradas
+
+<!-- Las añade /save-correction. Formato: ### C-NNN — título, con Fecha, Skill, Situación, La skill dijo, Corrección, Razón, Aplica a. -->
 ```
 
 ---

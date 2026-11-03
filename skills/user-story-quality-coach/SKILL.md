@@ -32,12 +32,14 @@ Si detectas que estás validando algo que tú mismo acabas de generar, **detente
 
 ## Flujo de trabajo
 
-1. **Identificar equipo** (opcional) → Si existe contexto de equipo en `references/teams/{team-key}.md`, cargarlo
+1. **Identificar equipo** (opcional) → Cargar el contexto de equipo: primero `.gemba/teams/{team-key}.md` en el directorio de trabajo; si no existe, `references/teams/{team-key}.md`. Si tiene `## Correcciones registradas`, aplicarlas al evaluar y citar la corrección (`C-NNN`) cuando cambie un veredicto. Si una corrección contradice el input actual, señalarlo al usuario en lugar de aplicarla en silencio.
 2. **Obtener stories** → El usuario aporta el contenido (paste, fichero, MCP del issue tracker si lo tiene configurado por fuera del toolkit)
 3. **CHECKPOINT: Confirmar alcance** → Mostrar lista de stories encontradas, preguntar al usuario si quiere analizarlas todas o seleccionar un subconjunto
 4. **Evaluar** → Scoring 6 dimensiones + detección antipatrones + completitud operativa
 5. **CHECKPOINT: Resumen antes de reporte** → Presentar scorecard resumen (tabla de scores + antipatrones detectados). Preguntar si quiere el reporte completo o enfocarse en las stories problemáticas
 6. **Generar reporte** → Según lo acordado con el usuario
+
+**Si el usuario corrige un veredicto** durante la sesión (ej. "esa story no es fake porque…"), aplicar la corrección y ofrecer guardarla con `/save-correction` para próximas sesiones. No guardarla sin que el usuario lo pida.
 
 **Regla clave:** Las versiones "reescritas" en el reporte son PROPUESTAS. Usar solo información disponible en la story original + PRD. NUNCA inventar evidencia, métricas ni quotes para las reescrituras. Si falta información, marcar con `⚠️ Pendiente` y recomendar cómo obtenerla.
 
@@ -84,7 +86,7 @@ Devuelve `Score Global`, `Banda` e `Interpretación`. Usar su output en el repor
 
 ## Usuarios válidos por dominio
 
-Los usuarios válidos dependen del dominio del equipo. Si existe `references/teams/{team-key}.md` con la lista de roles del equipo, se usa para detectar Fake Stories (roles que no encajan con el dominio del producto).
+Los usuarios válidos dependen del dominio del equipo. Si existe contexto de equipo (`.gemba/teams/{team-key}.md` o `references/teams/{team-key}.md`) con la lista de roles del equipo, se usa para detectar Fake Stories (roles que no encajan con el dominio del producto).
 
 Sin contexto de equipo, la skill aplica heurísticas generales:
 - Roles externos (clientes, usuarios finales, operarios) → válidos por defecto

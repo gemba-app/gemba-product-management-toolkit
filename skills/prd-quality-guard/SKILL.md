@@ -67,6 +67,14 @@ PRD (fichero, URL o contenido pegado)
     │
     ▼
 ┌──────────────────────────────────────┐
+│  🚦 ECO DEL ENTENDIMIENTO             │
+│     3-5 bullets: qué es, problema,    │
+│     usuario, resultado, dudas         │
+│     Esperar confirmación del usuario  │
+└──────────────────────────────────────┘
+    │
+    ▼
+┌──────────────────────────────────────┐
 │  2. INVENTARIO DE SECCIONES           │
 │     - Escanear todas las secciones    │
 │     - Marcar estado por sección       │
@@ -176,6 +184,12 @@ GATE DECISION → PASS / CONDICIONAL / FAIL
 3. **Contenido pegado:** Aceptar el texto del usuario directamente
 4. **MCP de tu herramienta de docs:** Si el usuario tiene un MCP configurado (Notion, Confluence, etc.), invocarlo con la URL/ID que proporcione
 5. Verificar que el contenido tiene estructura reconocible de PRD
+
+### Paso 1b: Eco del Entendimiento
+
+Antes de inventariar, devolver al usuario lo que has entendido del PRD: qué es, problema central, usuario, resultado buscado y lo que no entiendes. Formato y reglas: `shared-config.md` §Eco del Entendimiento.
+
+**Esperar confirmación.** Si el usuario corrige, rehacer el eco. Un PRD mal entendido produce un inventario y un scoring sobre el documento equivocado.
 
 ### Paso 2: Inventario de Secciones
 

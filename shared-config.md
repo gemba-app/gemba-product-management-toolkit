@@ -31,6 +31,72 @@ NO hacer:
 
 ---
 
+## Eco del Entendimiento (check-alignment)
+
+Las skills que reciben un input complejo (PRD, JTBDs, notas de research) **devuelven primero lo que han entendido**, antes de inventariar, puntuar o planificar. Los checkpoints dicen lo que la skill *va a hacer*; el eco dice lo que la skill *ha entendido*.
+
+Formato:
+
+> 🚦 **He entendido esto del input:**
+> - **Qué es:** [tipo de documento + feature/producto, 1 frase]
+> - **Problema central:** [problema según el input, con su fuente]
+> - **Usuario:** [quién lo sufre, tal como lo nombra el input]
+> - **Resultado buscado:** [objetivo o métrica declarada, o `⚠️ Pendiente` si no la hay]
+> - **Lo que no entiendo:** [ambigüedades concretas, o "nada relevante"]
+>
+> ¿Es correcto? Si no, corrígeme antes de seguir.
+
+**Reglas:**
+- 3-5 bullets. Solo lo que dice el input: si un campo no aparece, `⚠️ Pendiente`, no se deduce.
+- **Esperar confirmación** antes de seguir. Si el usuario corrige, rehacer el eco con la corrección.
+- En sub-agente (sin usuario), incluir el eco al principio del output como "Entendimiento a confirmar por el orquestador".
+
+Patrón Lada Kesseler — `check-alignment`.
+
+---
+
+## Marcadores de Estado (context-markers)
+
+Durante la ejecución, cada mensaje al usuario **empieza** con el marcador del estado en que está la skill. Así el usuario sabe qué se espera de él sin leer el cuerpo.
+
+| Marcador | Estado | Qué se espera del usuario |
+|----------|--------|---------------------------|
+| 🚦 | En checkpoint o eco del entendimiento, esperando OK | Responder antes de que la skill siga |
+| 📋 | Siguiendo un checklist o proceso con pasos: `📋 Paso N/M` | Nada; informativo |
+| 🔍 | Analizando o investigando input | Nada; informativo |
+| 🧱 | Gap bloqueante: la skill no puede seguir sin información | Aportar lo que falta |
+| ⚠️ Pendiente | Dato ausente dentro de un artefacto (ya existente) | Completarlo cuando pueda |
+
+**Reglas:**
+- Un marcador por mensaje, el del estado dominante. 🧱 gana a 🚦 si ambos aplican.
+- No usar estos marcadores con otro significado en mensajes conversacionales.
+- Los emojis de encabezado en las plantillas de reporte (`references/*template*.md`) son decorativos y no son marcadores de estado.
+
+Patrón Lada Kesseler — `context-markers`.
+
+---
+
+## Correcciones del Usuario (extract-knowledge)
+
+Cuando el usuario corrige el criterio de una skill ("esa story no es fake porque…"), la corrección se puede guardar con `/save-correction` para que la próxima sesión no repita el error.
+
+**Dónde se guardan:** en el proyecto del usuario, no en el plugin (el plugin se sobrescribe al actualizarse).
+
+| Ruta | Uso |
+|------|-----|
+| `.gemba/teams/{team-key}.md` | Contexto de equipo + sección `## Correcciones registradas` |
+
+**Al cargar contexto de equipo**, las skills buscan primero `.gemba/teams/{team-key}.md` en el directorio de trabajo y, si no existe, `references/teams/{team-key}.md` dentro de la skill.
+
+**Reglas:**
+- Solo se guarda lo que el usuario dijo. La skill no generaliza la corrección más allá de su enunciado.
+- Guardar requiere confirmación explícita del usuario. Nunca se guarda automáticamente.
+- Una corrección registrada que contradiga el input actual se señala al usuario; no se aplica en silencio.
+
+Patrón Lada Kesseler — `extract-knowledge`.
+
+---
+
 ## Skills del Ecosistema
 
 | Skill | Rol | Trigger ejemplo |
@@ -208,4 +274,4 @@ Cada equipo configura su integración con la herramienta de documentos por fuera
 
 ---
 
-*Plugin v3.0.1 — MIT License — https://github.com/gemba-app/gemba-product-management-toolkit*
+*Plugin v3.1.0 — MIT License — https://github.com/gemba-app/gemba-product-management-toolkit*
